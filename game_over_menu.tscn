@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdv8lgqjeqjbc"]
+
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_1ymxi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m1ks"]
+bg_color = Color(0.333333, 0.694118, 0.305882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.72549, 0.627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s4t6"]
+bg_color = Color(0.211765, 0.623529, 0.94902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36xfc"]
+bg_color = Color(0.0470588, 0.396078, 0.74902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_1ymxi")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -125.0
+offset_right = 50.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7m1ks")
+
+[node name="Result" type="Label" parent="."]
+offset_left = 166.5
+offset_top = 200.0
+offset_right = 433.5
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 40
+text = "Player 1 Wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 175.0
+offset_top = 300.0
+offset_right = 425.0
+offset_bottom = 363.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_5s4t6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_36xfc")
+text = "Play Again"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
